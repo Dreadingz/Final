@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Digital Notebook - Mindful Moments</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Internal CSS styles for the page elements */
+        body {
+            font-family: sans-serif;
+            /* Sets the default font for the body text to a sans-serif family */
+            background-color: #f8f9fa;
+            /* Sets the background color of the body to a light gray, often used with Bootstrap */
+        }
+        .container {
+            margin-top: 20px;
+            /* Adds a top margin to the container element for spacing from the top of the viewport */
+        }
+        h1 {
+            color: #6610f2;
+            /* Sets the color of the main heading to a purple color (primary color in some Bootstrap themes) */
+            margin-bottom: 20px;
+            /* Adds a bottom margin to the main heading for spacing below it */
+        }
+        #notebook {
+            width: 100%;
+            /* Makes the textarea take up the full width of its parent container */
+            height: 300px;
+            /* Sets a fixed height for the textarea to provide space for writing */
+            border: 1px solid #ced4da;
+            /* Adds a light gray border around the textarea */
+            border-radius: 5px;
+            /* Rounds the corners of the textarea */
+            padding: 10px;
+            /* Adds internal padding inside the textarea */
+            margin-bottom: 10px;
+            /* Adds a bottom margin below the textarea */
+            resize: vertical;
+            /* Allows the user to resize the textarea vertically */
+            font-size: 1rem;
+            /* Sets the font size of the text within the textarea */
+            line-height: 1.5;
+            /* Sets the line height for better readability of the text */
+        }
+        #saveButton {
+            background-color: #6610f2;
+            /* Sets the background color of the save button to purple */
+            color: white;
+            /* Sets the text color of the save button to white */
+            border: none;
+            /* Removes the default border of the button */
+            padding: 10px 20px;
+            /* Sets the vertical and horizontal padding of the button */
+            border-radius: 5px;
+            /* Rounds the corners of the button */
+            cursor: pointer;
+            /* Changes the cursor to a pointer on hover, indicating it's clickable */
+            transition: background-color 0.3s ease;
+            /* Adds a smooth transition effect for the background color on hover */
+        }
+        #saveButton:hover {
+            background-color: #560ec4;
+            /* Darkens the background color of the save button on hover */
+        }
+        #clearButton {
+            background-color: #e53e3e;
+            /* Sets the background color of the clear button to red */
+            color: white;
+            /* Sets the text color of the clear button to white */
+            border: none;
+            /* Removes the default border of the button */
+            padding: 10px 20px;
+            /* Sets the vertical and horizontal padding of the button */
+            border-radius: 5px;
+            /* Rounds the corners of the button */
+            cursor: pointer;
+            /* Changes the cursor to a pointer on hover, indicating it's clickable */
+            transition: background-color 0.3s ease;
+            /* Adds a smooth transition effect for the background color on hover */
+            margin-left: 10px;
+            /* Adds a left margin to separate it from the save button */
+        }
+        #clearButton:hover {
+            background-color: #c53030;
+            /* Darkens the background color of the clear button on hover */
+        }
+        #entriesList {
+            margin-top: 20px;
+            /* Adds a top margin to the entries list section */
+            padding: 15px;
+            /* Adds internal padding to the entries list section */
+            border: 1px solid #ddd;
+            /* Adds a light gray border around the entries list section */
+            border-radius: 5px;
+            /* Rounds the corners of the entries list section */
+            background-color: #f8f9fa;
+            /* Sets a light gray background color for the entries list section */
+        }
+        #entriesList h2 {
+            color: #6610f2;
+            /* Sets the color of the "Your Entries" heading to purple */
+            font-size: 1.5rem;
+            /* Sets the font size of the heading */
+            margin-bottom: 1rem;
+            /* Adds a bottom margin below the heading */
+            border-bottom: 2px solid #6610f2;
+            /* Adds a purple bottom border to the heading for visual separation */
+            padding-bottom: 0.5rem;
+            /* Adds padding below the heading and above the border */
+        }
+        #entriesList ul {
+            list-style-type: none;
+            /* Removes the default bullet points from the unordered list */
+            padding-left: 0;
+            /* Removes the default left padding of the unordered list */
+        }
+        #entriesList li {
+            background-color: #ffffff;
+            /* Sets the background color of each list item to white */
+            margin-bottom: 10px;
+            /* Adds a bottom margin to each list item for spacing */
+            padding: 10px;
+            /* Adds internal padding to each list item */
+            border-radius: 5px;
+            /* Rounds the corners of each list item */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            /* Adds a subtle box shadow for a slight lift effect */
+            border: 1px solid #eee;
+            /* Adds a very light gray border around each list item */
+        }
+        #entriesList li:nth-child(odd) {
+            background-color: #f0f0f0;
+            /* Sets a slightly darker background color for every odd-numbered list item for visual distinction */
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Mindful Moments</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="music.html">Therapeutic Music</a>
+                        </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="quotes.html">Daily Quotes</a>
+                        </li>
+                     <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="notebook.html">My Notebook</a>
+                        </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>My Digital Notebook</h1>
+        <textarea id="notebook" placeholder="Write your thoughts here..."></textarea>
+        <div class="button-group">
+            <button id="saveButton">Save Entry</button>
+            <button id="clearButton">Clear Notebook</button>
+            </div>
+
+        <div id="entriesList">
+            <h2>Your Entries</h2>
+            <ul id="entryList"></ul>
+            </div>
+    </div>
+
+    <script>
+        // JavaScript code to handle the notebook functionality
+        const notebook = document.getElementById('notebook');
+        // Gets the textarea element with the ID 'notebook'
+        const saveButton = document.getElementById('saveButton');
+        // Gets the button element with the ID 'saveButton'
+        const clearButton = document.getElementById('clearButton');
+        // Gets the button element with the ID 'clearButton'
+        const entryList = document.getElementById('entryList');
+        // Gets the unordered list element with the ID 'entryList' where entries will be displayed
+        const entriesListDiv = document.getElementById('entriesList')
+		// Gets the div element with the ID 'entriesList' that contains the heading and the list of entries
+
+        let entries = JSON.parse(localStorage.getItem('notebookEntries')) || [];
+        // Retrieves saved notebook entries from local storage.
+        // JSON.parse converts the string back into an array.
+        // If no entries are found, it defaults to an empty array ([]).
+
+        function displayEntries() {
+            // Function to display the saved notebook entries in the list
+            entryList.innerHTML = '';
+            // Clears the current content of the entry list to prevent duplicates
+
+			if (entries.length === 0){
+				// If there are no entries in the array
+				entriesListDiv.style.display = "none";
+				// Hide the entire "Your Entries" section
+			}
+			else{
+				// If there are entries
+				entriesListDiv.style.display = "block";
+				// Make sure the "Your Entries" section is visible
+				entries.forEach((entry, index) => {
+					// Iterates over each entry in the 'entries' array
+					const listItem = document.createElement('li');
+					// Creates a new list item element for each entry
+					listItem.textContent = entry;
+					// Sets the text content of the list item to the current entry
+
+					const deleteButton = document.createElement('button');
+					// Creates a new button element for deleting the entry
+					deleteButton.textContent = 'Delete';
+					// Sets the text content of the delete button
+					deleteButton.className = 'btn btn-danger btn-sm float-end';
+					// Adds Bootstrap classes for styling the delete button as a small red button floated to the right
+					deleteButton.addEventListener('click', () => {
+						// Adds an event listener to the delete button that triggers when clicked
+						deleteEntry(index);
+						// Calls the deleteEntry function with the index of the current entry to remove it
+					});
+					listItem.appendChild(deleteButton);
+					// Appends the delete button to the current list item
+					entryList.appendChild(listItem);
+					// Appends the populated list item to the entry list in the HTML
+				});
+			}
+        }
+
+        function saveEntry() {
+            // Function to save the current text from the notebook textarea
+            const text = notebook.value.trim();
+            // Gets the value from the notebook textarea and removes leading/trailing whitespace
+            if (text !== '') {
+                // Checks if the text is not empty
+                entries.push(text);
+                // Adds the current text to the 'entries' array
+                localStorage.setItem('notebookEntries', JSON.stringify(entries));
+                // Saves the updated 'entries' array to local storage as a JSON string
+                notebook.value = '';
+                // Clears the notebook textarea after saving
+                displayEntries();
+                // Calls the displayEntries function to update the displayed list of entries
+                alert('Your entry has been saved!');
+                // Shows an alert to the user confirming the save
+            } else {
+                // If the textarea is empty
+                alert('Please write something before saving.');
+                // Shows an alert asking the user to write something
+            }
+        }
+
+        function deleteEntry(index) {
+            // Function to delete a notebook entry at a specific index
+            entries.splice(index, 1);
+            // Removes one element at the specified index from the 'entries' array
+            localStorage.setItem('notebookEntries', JSON.stringify(entries));
+            // Updates the local storage with the modified 'entries' array
+            displayEntries();
+            // Re-renders the list of entries to reflect the deletion
+        }
+
+        function clearNotebook() {
+            // Function to clear all notebook entries
+            entries = [];
+            // Resets the 'entries' array to an empty array
+            localStorage.removeItem('notebookEntries');
+            // Removes the 'notebookEntries' item from local storage
+            notebook.value = '';
+            // Clears the content of the notebook textarea
+            displayEntries();
+            // Updates the displayed list (which will now be empty)
+            alert('Notebook cleared!');
+            // Shows an alert confirming that the notebook has been cleared
+        }
+
+        saveButton.addEventListener('click', saveEntry);
+        // Adds an event listener to the save button that calls the saveEntry function when clicked
+        clearButton.addEventListener('click', clearNotebook);
+        // Adds an event listener to the clear button that calls the clearNotebook function when clicked
+        displayEntries();
+        // Calls the displayEntries function when the page loads to show any previously saved entries
+    </script>
+</body>
+</html>
